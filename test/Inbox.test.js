@@ -4,8 +4,6 @@ const Web3 = require('web3'); // Portal para acessar a rede ethereum
 const web3 = new Web3(ganache.provider()); // Instância do Web3, parâmetro diz respeito à network que será acessada
 const { interface, bytecode } = require('./.contrato_compilado.js'); // Recebe as propriedades (informadas pelas chaves do dicionário) retornadas pelo arquivo
 
-const infura = 'https://rinkeby.infura.io/v3/25977de568b74e87b48cb583b4b0c44a';
-
 // String inicial usada para "isntanciar" o contrato
 const INITIAL_STRING = 'Hi there!';
 
