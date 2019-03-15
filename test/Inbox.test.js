@@ -2,7 +2,7 @@ const assert = require('assert'); // Usado para comparar valores
 const ganache = require('ganache-cli'); // Local teste ethereum network
 const Web3 = require('web3'); // Portal para acessar a rede ethereum
 const web3 = new Web3(ganache.provider()); // Instância do Web3, parâmetro diz respeito à network que será acessada
-const { interface, bytecode } = require('./.contrato_compilado.js'); // Recebe as propriedades (informadas pelas chaves do dicionário) retornadas pelo arquivo
+const { interface, bytecode } = require('../.contrato_compilado.js'); // Recebe as propriedades (informadas pelas chaves do dicionário) retornadas pelo arquivo
 
 // String inicial usada para "isntanciar" o contrato
 const INITIAL_STRING = 'Hi there!';
@@ -25,11 +25,14 @@ before(async () =>{
         .send({ from: accounts[0], gas: '1000000'});
 });
 
+/*
 beforeEach(async () => {
     // console.log('Executa uma vez antes de cada "IT"');
 });
+*/
 
 describe('Inbox',() => {
+
     it('Deploys a contract', () =>{
         // Verifica se o 'inbox' tem um endereço, se sim significa que ele foi enviado com sucesso
         assert.ok(inbox.options.address);
@@ -47,9 +50,6 @@ describe('Inbox',() => {
         assert.equal(message,'Bye');
     });
 });
-// Link copiado do Infura
-// https://rinkeby.infura.io/v3/25977de568b74e87b48cb583b4b0c44a
-
 
 /* Exemplo de teste utilizando mocha
 // Para rodar o teste é necessário mudar a string de test em "package.json" para "mocha"
